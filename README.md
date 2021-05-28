@@ -77,5 +77,5 @@ If you have any questions regarding requirements, do not hesitate to email your 
 - `npm install`
 - `ng serve`
 - navigate to [localhost:4200](http://localhost:4200) in your browser
-###### Server (in api directory):
+###### Server (in nfl-rushing-api/nfl-rushing-api):
 - `dotnet run`

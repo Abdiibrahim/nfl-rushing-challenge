@@ -6,6 +6,7 @@
 
 /* Sortable Table*/
 th[sortable] {
+  color: rgb(149, 137, 230);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;

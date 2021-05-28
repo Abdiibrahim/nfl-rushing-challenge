@@ -64,7 +64,7 @@ If you have any questions regarding requirements, do not hesitate to email your 
 - navigate to root directory
 - in the command line run `docker-compose build`
 - run `docker-compose up`
-- navigate to [localhost:4200](localhost:4200) in your browser
+- navigate to [localhost:4200](http://localhost:4200) in your browser
 
 #### Running with ng and dotnet
 ##### Requirements:
@@ -76,6 +76,6 @@ If you have any questions regarding requirements, do not hesitate to email your 
 ###### Client (in client directory):
 - `npm install`
 - `ng serve`
-- navigate to [localhost:4200](localhost:4200) in your browser
+- navigate to [localhost:4200](http://localhost:4200) in your browser
 ###### Server (in api directory):
 - `dotnet run`

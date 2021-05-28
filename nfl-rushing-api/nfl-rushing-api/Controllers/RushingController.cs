@@ -50,7 +50,7 @@ namespace nfl_rushing_api.Controllers
 
             PagedList<RushingItem> Data = PagedList<RushingItem>.ToPagedList(data, pageNum, pageSize);
 
-            // add pagination header to response
+            // set return data
             var returnData = new
             {
                 Data,

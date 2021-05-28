@@ -53,5 +53,29 @@ We will evaluate you on your ability to solve the problem defined in the require
 ### Help
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
-### Installation and running this solution
-... TODO
+## Installation and running this solution
+#### Running with Docker
+##### Requirements:
+- Docker Desktop
+- Docker Compose
+
+##### To run:
+- ensure docker desktop is running
+- navigate to root directory
+- in the command line run `docker-compose build`
+- run `docker-compose up`
+- navigate to [localhost:4200](localhost:4200) in your browser
+
+#### Running with ng and dotnet
+##### Requirements:
+- node + npm - [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+- angular-cli - `npm install -g @angular/cli`
+- dotnet core - [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+
+##### To run:
+###### Client (in client directory):
+- `npm install`
+- `ng serve`
+- navigate to [localhost:4200](localhost:4200) in your browser
+###### Server (in api directory):
+- `dotnet run`

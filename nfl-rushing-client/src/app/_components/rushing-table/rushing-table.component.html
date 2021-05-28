@@ -1,0 +1,64 @@
+<form class="form-inline justify-content-between p-2">
+    <div>
+        <div class="form-group my-2">
+            <input class="form-control" type="text" placeholder="Player Name" name="playerFilter" [(ngModel)]="playerFilter"/>
+            <button type="button" class="btn btn-primary my-2 ml-1" (click)="getData(page, pageSize, orderBy, playerFilter)">Search</button>
+        </div>
+    </div>
+    <button type="button" class="btn btn-success my-2" (click)="downloadCsv(orderBy, playerFilter)">Export</button>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Player</th>
+                <th scope="col">Team</th>
+                <th scope="col">Position</th>
+                <th scope="col">Attempts</th>
+                <th scope="col">Attempts/Game</th>
+                <th scope="col" sortable="totalRushingYards" (sort)="onSort($event)">Total Yards</th>
+                <th scope="col">Avg Yards/Attempt</th>
+                <th scope="col">Yards/Game</th>
+                <th scope="col" sortable="rushingTouchdowns" (sort)="onSort($event)">Touchdowns</th>
+                <th scope="col" sortable="longestRush" (sort)="onSort($event)">Longest Rush</th>
+                <th scope="col">First Downs</th>
+                <th scope="col">First Down %</th>
+                <th scope="col">20+ Yards</th>
+                <th scope="col">40+ Yards</th>
+                <th scope="col">Fumbles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let line of items; index as i">
+                <th scope="row">{{ line.id }}</th>
+                <td>{{ line.player }}</td>
+                <td>{{ line.team }}</td>
+                <td>{{ line.position }}</td>
+                <td>{{ line.rushingAttempts }}</td>
+                <td>{{ line.rushingAttemptsPerGame }}</td>
+                <td>{{ line.totalRushingYards }}</td>
+                <td>{{ line.averageRushingYardsPerAttempt }}</td>
+                <td>{{ line.rushingYardsPerGame }}</td>
+                <td>{{ line.rushingTouchdowns }}</td>
+                <td>{{ line.longestRush }}</td>
+                <td>{{ line.rushingFirstDowns }}</td>
+                <td>{{ line.rushingFirstDownPercentage }}</td>
+                <td>{{ line.rushingTwentyPlusYards }}</td>
+                <td>{{ line.rushingFortyPlusYards }}</td>
+                <td>{{ line.rushingFumbles }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [maxSize]="5" [(page)]="page" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+    [pageSize]="pageSize" (pageChange)="getData(page, pageSize, orderBy, playerFilter)"></ngb-pagination>
+    <select class="custom-select" style="width: auto;" [(ngModel)]="pageSize" (ngModelChange)="getData(page, pageSize, orderBy, playerFilter)">
+        <option [ngValue]="10">10 items per page</option>
+        <option [ngValue]="25">25 items per page</option>
+        <option [ngValue]="50">50 items per page</option>
+    </select>
+</div>

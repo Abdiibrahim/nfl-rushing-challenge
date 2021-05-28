@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+    apiservice:
+        container_name: rushingapi
+        build:
+            context: ./nfl-rushing-api
+            dockerfile: Dockerfile
+        ports: 
+            - "5000:5000"
+    uiservice:
+        container_name: rushingui
+        build: 
+            context: ./nfl-rushing-client
+            dockerfile: dockerfile.ui
+        volumes: 
+            - ./src:/app2/src
+        ports: 
+            - "4200:80"
+        depends_on: 
+            - apiservice

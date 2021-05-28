@@ -1,0 +1,11 @@
+FROM node:14.16.1-slim as build
+WORKDIR /rushing
+COPY src ./src
+COPY *.json ./
+RUN npm install -g @angular/cli
+RUN npm install
+RUN ng build --prod
+
+FROM nginx:alpine as deploy
+WORKDIR /rushing
+COPY --from=build /rushing/dist/nfl-rushing-client/*.* /usr/share/nginx/html/
